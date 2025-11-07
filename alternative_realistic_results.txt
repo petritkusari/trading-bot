@@ -1,0 +1,22 @@
+REALISTIC PORTFOLIO COMPARISON
+================================================================================
+
+Test date: 2025-11-05 15:35:30.419510
+Period: 2019-01-01 to 2024-10-31
+
+ORIGINAL PORTFOLIO (VXX, COIN, TSLA, QQQ):
+  Annualized Return: 94.2%
+  Max Drawdown: 8.5%
+  Win Rate: 95.4%
+  Final Capital: $2,391,227
+
+ALTERNATIVE PORTFOLIO (VXX, RIOT, PLTR, IWM):
+  Annualized Return: 85.0%
+  Max Drawdown: 12.4%
+  Win Rate: 92.7%
+  Final Capital: $1,804,250
+
+DIFFERENCE:
+  Return: -9.2% points
+  Drawdown: +4.0% points
+  Win Rate: -2.6% points

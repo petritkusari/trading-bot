@@ -1,0 +1,21 @@
+ALTERNATIVE PORTFOLIO BACKTEST RESULTS
+======================================================================
+
+Test Date: 2025-11-05 15:33:55
+Period: 2019-01-01 to 2024-10-31
+
+ORIGINAL PORTFOLIO:
+  Tickers: VXX, COIN, TSLA, QQQ
+  Annualized Return: 1171.4%
+  Max Drawdown: 9.3%
+  Win Rate: 91.7%
+
+ALTERNATIVE PORTFOLIO:
+  Tickers: VXX, RIOT, PLTR, IWM
+  Annualized Return: 870.7%
+  Max Drawdown: 13.1%
+  Win Rate: 88.8%
+
+VERDICT:
+  Return Difference: -300.7% points
+  Risk Difference: +3.7% points
