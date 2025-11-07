@@ -14,7 +14,7 @@ def main():
     try:
         # Connect
         print("\nConnecting to TWS...")
-        ib.connect('127.0.0.1', 7497, clientId=1)
+        ib.connect('127.0.0.1', 4002, clientId=1)
         print("[OK] Connected")
 
         # Get VXX stock

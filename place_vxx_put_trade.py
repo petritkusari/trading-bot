@@ -13,7 +13,7 @@ def place_trade():
     try:
         # Connect
         print("\n1. Connecting to TWS...")
-        ib.connect('127.0.0.1', 7497, clientId=1)
+        ib.connect('127.0.0.1', 4002, clientId=1)
         print("   [OK] Connected to Paper Trading")
 
         # Define the PUT contract

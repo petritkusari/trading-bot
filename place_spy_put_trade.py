@@ -11,7 +11,7 @@ def main():
     ib = IB()
 
     try:
-        ib.connect('127.0.0.1', 7497, clientId=1)
+        ib.connect('127.0.0.1', 4002, clientId=1)
         print("\n[OK] Connected to Paper Trading\n")
 
         # Get SPY stock price first

@@ -6,16 +6,16 @@ import sys
 
 def main():
     print("=" * 60)
-    print("CONNECTING TO TWS (PAPER TRADING)")
+    print("CONNECTING TO IB GATEWAY (PAPER TRADING)")
     print("=" * 60)
 
     # Create IB connection
     ib = IB()
 
     try:
-        # Connect to TWS Paper Trading (port 7497)
-        print("\n1. Attempting connection to localhost:7497...")
-        ib.connect('127.0.0.1', 7497, clientId=1)
+        # Connect to IB Gateway Paper Trading (port 4002)
+        print("\n1. Attempting connection to localhost:4002...")
+        ib.connect('127.0.0.1', 4002, clientId=1)
         print("[OK] CONNECTED SUCCESSFULLY!")
 
         # Get account info
@@ -71,15 +71,15 @@ def main():
     except Exception as e:
         print(f"\n[ERROR] {e}")
         print("\nTroubleshooting:")
-        print("1. Is TWS running?")
-        print("2. Is 'Enable ActiveX and Socket Clients' checked?")
+        print("1. Is IB Gateway running?")
+        print("2. Is 'Enable ActiveX and Socket Clients' checked in API settings?")
         print("3. Is 'Read-Only API' UNCHECKED?")
-        print("4. Did you click OK and restart TWS if prompted?")
+        print("4. Did you click OK and restart IB Gateway if prompted?")
         sys.exit(1)
 
     finally:
         ib.disconnect()
-        print("\nDisconnected from TWS")
+        print("\nDisconnected from IB Gateway")
 
 if __name__ == "__main__":
     main()
