@@ -1,21 +1,24 @@
 """
-Test TWS API Connection and Check Current Positions/Orders
+Test IB API Connection and Check Current Positions/Orders
+Works with both TWS and IB Gateway - configure in ib_config.py
 """
 from ib_insync import *
 import sys
+from ib_config import get_connection_params, print_connection_info
 
 def main():
-    print("=" * 60)
-    print("CONNECTING TO TWS (PAPER TRADING)")
-    print("=" * 60)
+    # Get connection parameters from config
+    params = get_connection_params('tws_connect_test')
+
+    print_connection_info('tws_connect_test')
 
     # Create IB connection
     ib = IB()
 
     try:
-        # Connect to TWS Paper Trading (port 7497)
-        print("\n1. Attempting connection to localhost:7497...")
-        ib.connect('127.0.0.1', 7497, clientId=1)
+        # Connect using configured parameters
+        print(f"\n1. Attempting connection to {params['host']}:{params['port']}...")
+        ib.connect(params['host'], params['port'], clientId=params['clientId'])
         print("[OK] CONNECTED SUCCESSFULLY!")
 
         # Get account info
@@ -71,15 +74,16 @@ def main():
     except Exception as e:
         print(f"\n[ERROR] {e}")
         print("\nTroubleshooting:")
-        print("1. Is TWS running?")
+        print(f"1. Is {params['connection_type']} running?")
         print("2. Is 'Enable ActiveX and Socket Clients' checked?")
         print("3. Is 'Read-Only API' UNCHECKED?")
-        print("4. Did you click OK and restart TWS if prompted?")
+        print("4. Did you click OK and restart if prompted?")
+        print(f"5. Check ib_config.py - current port: {params['port']}")
         sys.exit(1)
 
     finally:
         ib.disconnect()
-        print("\nDisconnected from TWS")
+        print(f"\nDisconnected from {params['connection_type']}")
 
 if __name__ == "__main__":
     main()

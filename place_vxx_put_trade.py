@@ -1,19 +1,25 @@
 """
 Place VXX PUT Trade - Your First Correct Trade!
+Works with both TWS and IB Gateway - configure in ib_config.py
 """
 from ib_insync import *
+from ib_config import get_connection_params, print_connection_info
 
 def place_trade():
+    # Get connection parameters
+    params = get_connection_params('place_vxx_put')
+
     print("=" * 60)
     print("PLACING VXX PUT TRADE")
     print("=" * 60)
+    print_connection_info('place_vxx_put')
 
     ib = IB()
 
     try:
         # Connect
-        print("\n1. Connecting to TWS...")
-        ib.connect('127.0.0.1', 7497, clientId=1)
+        print(f"\n1. Connecting to {params['connection_type']}...")
+        ib.connect(params['host'], params['port'], clientId=params['clientId'])
         print("   [OK] Connected to Paper Trading")
 
         # Define the PUT contract
@@ -101,7 +107,7 @@ def place_trade():
             print("CONGRATULATIONS! FIRST TRADE PLACED!")
             print("=" * 60)
             print("\nNext steps:")
-            print("1. Monitor position in TWS Portfolio window")
+            print("1. Monitor position in TWS/IB Gateway Portfolio window")
             print("2. Position will show as: -10 VXX Nov 7 '25 18 PUT")
             print("3. Wait until Friday for expiration")
             print("4. If VXX > $18 on Friday: PUTs expire, you keep premium")
@@ -118,7 +124,7 @@ def place_trade():
 
     finally:
         ib.disconnect()
-        print("\nDisconnected from TWS")
+        print(f"\nDisconnected from {params['connection_type']}")
 
 if __name__ == "__main__":
     place_trade()
